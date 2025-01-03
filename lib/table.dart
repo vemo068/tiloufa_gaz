@@ -21,7 +21,7 @@ class MyTable extends StatelessWidget {
           horizontalMargin: 10,
           dataRowHeight: 40,
           dividerThickness: 1,
-          columnSpacing: 5,
+          columnSpacing: 2,
           decoration: BoxDecoration(
             color: Color(0xffEAEAEA),
           ),
@@ -30,32 +30,32 @@ class MyTable extends StatelessWidget {
                 label: Center(
               child: Text(
                 "التاريخ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             )),
             DataColumn(
                 label: Center(
                     child: Text(
               "تم شراء",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ))),
             DataColumn(
                 label: Center(
                     child: Text(
               "تم إرجاع",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ))),
             DataColumn(
                 label: Center(
                     child: Text(
               "الفرق",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ))),
             DataColumn(
                 label: Center(
                     child: Text(
               "تم دفع",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ))),
           ],
           rows: getRows(gaz, context),
@@ -72,7 +72,7 @@ List<DataRow> getRows(List<Gazbuy> gaz, BuildContext ct) =>
         gazt.recived,
         gazt.ruterned,
         (gazt.recived - gazt.ruterned),
-        "${gazt.payed} دج"
+        "${gazt.payed}"
       ];
 
       return DataRow(cells: getCells(cells, gazt, ct));

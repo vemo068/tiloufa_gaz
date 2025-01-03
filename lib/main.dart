@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:tiloufa_1/bottomsheet.dart';
 import 'package:tiloufa_1/cache.dart';
-import 'package:tiloufa_1/clients_page.dart';
 import 'package:tiloufa_1/gazbuy.dart';
 import 'package:tiloufa_1/inis.dart';
 import 'package:tiloufa_1/table.dart';
@@ -25,7 +23,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "غاز تيلوفة",
       debugShowCheckedModeBanner: false,
-      home: Clients(),
+      home: HomePage(),
     );
   }
 }
@@ -87,18 +85,51 @@ class _HomePageState extends State<HomePage> {
                           return Row(
                             children: [
                               Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                    width: 2,
+                                    color: Colors.white,
+                                  )),
+                                  child: Column(
+                                    children: [
+                                      const Text(
+                                        ":عدد غير مدفوعة",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            color: Color(0xffEAEAEA),
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "${(money + knowMoney) / kunitPrice} ",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 18,
+                                            color: Color(0xffEAEAEA)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                  child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                  width: 2,
+                                  color: Colors.white,
+                                )),
                                 child: Column(
                                   children: [
                                     const Text(
-                                      ": عدد القارورات غير المدفوعة",
-                                      textAlign: TextAlign.center,
+                                      ":يجب دفع",
                                       style: TextStyle(
                                           fontSize: 20,
                                           color: Color(0xffEAEAEA),
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
-                                      "${(money + knowMoney) / kunitPrice} ",
+                                      "${(money + knowMoney)} دج",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 18,
@@ -106,44 +137,32 @@ class _HomePageState extends State<HomePage> {
                                     )
                                   ],
                                 ),
-                              ),
-                              Expanded(
-                                  child: Column(
-                                children: [
-                                  const Text(
-                                    ":يجب دفع",
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        color: Color(0xffEAEAEA),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "${(money + knowMoney)} دج",
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xffEAEAEA)),
-                                  )
-                                ],
                               )),
                               Expanded(
-                                  child: Column(
-                                children: [
-                                  const Text(
-                                    ":يجب إرجاع",
-                                    style: TextStyle(
-                                        fontSize: 25,
-                                        color: Color(0xffEAEAEA),
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Text(
-                                    "قارورة ${dif + knowdif} ",
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18,
-                                        color: Color(0xffEAEAEA)),
-                                  )
-                                ],
+                                  child: Container(
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                  width: 2,
+                                  color: Colors.white,
+                                )),
+                                child: Column(
+                                  children: [
+                                    const Text(
+                                      ":يجب إرجاع",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Color(0xffEAEAEA),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "قارورة ${dif + knowdif} ",
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18,
+                                          color: Color(0xffEAEAEA)),
+                                    )
+                                  ],
+                                ),
                               )),
                             ],
                           );
