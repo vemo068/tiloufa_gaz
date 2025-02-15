@@ -11,21 +11,20 @@ class MyBtm extends StatelessWidget {
   var textpay = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    textmoin.text = '0';
-    textpay.text = '0';
-    textplus.text = '0';
+    textmoin.text = '';
+    textpay.text = '';
+    textplus.text = '';
     TextDirection.rtl;
     return SafeArea(
       child: Scaffold(
         body: Center(
           child: Container(
             padding: const EdgeInsets.all(10),
-           
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     "إضافة عملية شراء",
                     style: TextStyle(
                         color: Colors.black,
@@ -39,7 +38,7 @@ class MyBtm extends StatelessWidget {
                     autofocus: true,
                     // initialValue: '0',
                     controller: textplus,
-      
+
                     decoration: const InputDecoration(
                         label: Text(
                           'تم شراء',
@@ -85,7 +84,7 @@ class MyBtm extends StatelessWidget {
                           color: Colors.green,
                         )),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
